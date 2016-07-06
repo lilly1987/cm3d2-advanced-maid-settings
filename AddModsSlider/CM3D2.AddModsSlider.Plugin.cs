@@ -159,7 +159,7 @@ namespace CM3D2.AddModsSlider.Plugin
 
                 foreach(XmlNode modNode in modNodeS)
                 {    
-                    // mod属性
+                    // mod属性 속성
                     string key = ((XmlElement)modNode).GetAttribute("id");
                     if(key != "" && !sKey.Contains(key)) sKey.Add(key);
                     else continue;
@@ -193,7 +193,7 @@ namespace CM3D2.AddModsSlider.Plugin
                     sMatchPattern[key] = new Dictionary<string, string>();
                     bVVisible[key]     = new Dictionary<string, bool>();
                     
-                    // value属性
+                    // value属性 속성
                     int j = 0;
                     foreach (XmlNode valueNode in valueNodeS)
                     {
@@ -252,7 +252,7 @@ namespace CM3D2.AddModsSlider.Plugin
 
 
 
-        #region MonoBehaviour methods
+        #region MonoBehaviour methods //단일 행동?
 
         public void OnLevelWasLoaded(int level)
         {
@@ -306,6 +306,7 @@ namespace CM3D2.AddModsSlider.Plugin
                 notifyMaidVoicePitchOnChange();
 
                 // WIDESLIDER有効化/無効化に合わせて、依存項目UIを表示/非表示
+                // 활성화 / 비활성화에 따라 의존성 UI를 표시 / 숨기기
                 if (key == "WIDESLIDER")  toggleActiveOnWideSlider();
             }
             
@@ -382,6 +383,7 @@ namespace CM3D2.AddModsSlider.Plugin
             resetSliderValue(getTag(UIButton.current, 1));
         }
 
+        // 슬라이더 수치 조정시 실행?
         public void OnChangeSlider()
         {
           try{
@@ -453,6 +455,7 @@ namespace CM3D2.AddModsSlider.Plugin
             #region createSlider
 
             // スライダー作成
+            // 슬라이더 작성
             GameObject goTestSliderUnit = new GameObject("TestSliderUnit");
             SetChild(goUIRoot, goTestSliderUnit);
             {
@@ -463,6 +466,7 @@ namespace CM3D2.AddModsSlider.Plugin
                 uiTestSliderUnitFrame.SetDimensions(500, 50);
 
                 // スライダー作成
+                // 슬라이더 작성
                 UISlider uiTestSlider = NGUITools.AddChild<UISlider>(goTestSliderUnit);
                 UISprite uiTestSliderRail = uiTestSlider.gameObject.AddComponent<UISprite>();
                 uiTestSliderRail.name       = "Slider";
@@ -495,6 +499,7 @@ namespace CM3D2.AddModsSlider.Plugin
                 NGUITools.UpdateWidgetCollider(uiTestSliderThumb.gameObject);
 
                 // スライダーラベル作成
+                // 슬라이더 라벨
                 UILabel uiTestSliderLabel = NGUITools.AddChild<UILabel>(goTestSliderUnit);
                 uiTestSliderLabel.name           = "Label";
                 uiTestSliderLabel.trueTypeFont   = font;
@@ -506,6 +511,7 @@ namespace CM3D2.AddModsSlider.Plugin
                 uiTestSliderLabel.transform.localPosition = new Vector3(-190f, 0f, 0f);
                 
                 // 値ラベル・インプット作成
+                // 값 레이블 입력 작성
                 UISprite uiTestSliderValueBase = NGUITools.AddChild<UISprite>(goTestSliderUnit);
                 uiTestSliderValueBase.name       = "ValueBase";
                 uiTestSliderValueBase.atlas      = uiAtlasSceneEdit;

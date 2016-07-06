@@ -37,6 +37,13 @@ namespace CM3D2.MaidVoicePitch.Plugin
         /// ボーン名に?が含まれるとLとRに置換されます。
         /// 頭に影響が行くボーンを登録する場合は
         /// WIDESLIDER() 内の ignoreHeadBones にボーン名を書くこと。
+        
+        /// Transform 변형을 할 뼈의 목록입니다.
+        /// 여기에 써두면 자동으로 BoneMorph에 등록 된 Transform 처리됩니다.
+        /// string []의 내용은 { "본 이름", "ExSave 속성 이름"}
+        /// 본 이름?이 포함되면 L과 R로 대체됩니다.
+        /// 머리에 영향이가는 뼈를 등록하는 경우
+        /// WIDESLIDER ()의 ignoreHeadBones에 본 이름을 작성합니다.
         /// </summary>
          private string[][] boneAndPropNameList = new string[][]
         {

@@ -550,6 +550,7 @@ namespace CM3D2.MaidVoicePitch.Plugin
             bonePosition["Mune_R"] = munePosR;
 
             // スケール変更するボーンをリストに一括登録
+            // 크기 조정하는 뼈를 목록에 일괄 등록
             SetBoneScaleFromList(boneScale, maid, boneAndPropNameList);
 
             Transform tEyePosL = null;
@@ -715,6 +716,9 @@ namespace CM3D2.MaidVoicePitch.Plugin
         {
             foreach (var item in _boneAndPropNameList)
             {
+                    // 예상되는 에러 부분
+                    // Kata_R의 서브는 Kata_R_nub
+                    // Mune_R의 서브는 Mune_R_sub
                     if (item[0].Contains("?"))
                     {
                         string boneNameL = item[0].Replace('?', 'L');
